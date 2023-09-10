@@ -11,5 +11,6 @@ class App {
 }
 
 fun main() {
-    open.kotlin.promise()
+    // open.kotlin.promise()
+    open.kotlin.createCoroutine()
 }
