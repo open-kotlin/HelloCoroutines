@@ -40,3 +40,22 @@ fun createCoroutine() {
     task.resume(Unit) // 将会被堵塞10秒!
     log.d("ok")
 }
+
+fun startCoroutine() {
+    val suspendLambda = suspend {
+        log.d("suspendLambda开始执行")
+        printTid()
+        myDelay(5000)
+        printTid()
+    }
+    log.d("启动协程")
+    suspendLambda.startCoroutine(object : Continuation<Any> {
+        override val context = EmptyCoroutineContext
+        override fun resumeWith(result: Result<Any>) {
+            log.d("协程处理完毕，执行回调")
+            log.d("result: $result")
+            printTid()
+        }
+    })
+    log.d("return")
+}

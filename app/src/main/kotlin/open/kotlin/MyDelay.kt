@@ -15,4 +15,10 @@ suspend fun myDelay(millis: Long) = suspendCoroutine<Unit> { continuation ->
     }
 }
 
-suspend fun myPending() = suspendCoroutine<Unit> {}
+suspend fun myPending() = suspendCoroutine<Unit> { continuation ->
+    thread { // 主线程会等待工作线程一起退出
+        while (true) {
+            Thread.sleep(Long.MAX_VALUE)
+        }
+    }
+}
