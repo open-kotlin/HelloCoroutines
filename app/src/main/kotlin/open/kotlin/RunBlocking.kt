@@ -30,8 +30,12 @@ fun <T> runBlocking(process: suspend () -> T): T? {
 fun testRunBlocking() {
     val value = runBlocking {
         log.d("执行")
+        printTid() // thread id: 1 (main)
         // delay(0) // 不会被暂停
-        delay(2000)
+        delay(2000) // thread id: 10 (kotlinx.coroutines.DefaultExecutor)
+        printTid()
+        myDelay(2000) // thread id: 11 (Thread-0)
+        printTid()
         log.d("好了")
         getPromise("World")
     }
