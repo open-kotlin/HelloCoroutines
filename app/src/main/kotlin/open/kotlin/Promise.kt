@@ -11,7 +11,8 @@ suspend fun getPromise(world: String? = null): String =
             if (world == null) {
                 continuation.resumeWithException(RuntimeException("Damn it!"))
             } else {
-                continuation.resume("Hello, " + world)
+                // continuation.resume("Hello, " + world)
+                continuation.resumeWith(Result.success("Hello, " + world))
             }
         }
 

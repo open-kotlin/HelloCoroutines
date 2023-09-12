@@ -13,6 +13,7 @@ class App {
 fun main() {
     // open.kotlin.promise()
     // open.kotlin.createCoroutine()
-    open.kotlin.startCoroutine()
+    // open.kotlin.startCoroutine()
     // open.kotlin.testRunBlocking()
+    CallSuspendFun.call()
 }
