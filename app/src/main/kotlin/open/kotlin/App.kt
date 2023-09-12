@@ -15,5 +15,6 @@ fun main() {
     // open.kotlin.createCoroutine()
     // open.kotlin.startCoroutine()
     // open.kotlin.testRunBlocking()
-    CallSuspendFun.call()
+    // CallSuspendFun.call()
+    open.kotlin.testRunBlocking2()
 }
